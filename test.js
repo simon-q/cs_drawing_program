@@ -5,9 +5,9 @@ var draw = require('./draw');
 var chai = require('chai');
 var expect = chai.expect
 
-describe('drawing program', () => {  
-  describe('"draw"', () => {
-    it('should export a function', () => {
+describe('drawing program', function() {  
+  describe('"draw"', function() {
+    it('should export a function', function() {
       expect(draw).to.be.a('function')
     })
   })

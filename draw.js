@@ -1,3 +1,5 @@
+'use strict'
+
 var readline = require('readline');
 
 if (!process.stdin || !process.stdout) {
@@ -181,3 +183,6 @@ function stop() {
 }
 
 read();
+
+
+module.exports = read;

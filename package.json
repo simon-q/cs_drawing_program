@@ -4,7 +4,7 @@
   "description": "Credit Suisse interview - first round assignment",
   "main": "draw.js",
   "scripts": {
-    "test": "node node_modules/mocha/bin/mocha.js"
+    "test": "node node_modules/mocha/bin/mocha"
   },
   "dependencies": {
     "mocha": "3.5.0",

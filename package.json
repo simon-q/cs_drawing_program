@@ -1,0 +1,22 @@
+{
+  "name": "cs_drawing_program",
+  "version": "1.0.0",
+  "description": "Credit Suisse interview - first round assignment",
+  "main": "draw.js",
+  "scripts": {
+    "test": "node node_modules/mocha/bin/mocha.js"
+  },
+  "dependencies": {
+    "mocha": "3.5.0",
+    "chai": "4.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/6finger/cs_drawing_program.git"
+  },
+  "author": "Simon Kvasnicka",
+  "bugs": {
+    "url": "https://github.com/6finger/cs_drawing_program/issues"
+  },
+  "homepage": "https://github.com/6finger/cs_drawing_program#readme"
+}

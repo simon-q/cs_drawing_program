@@ -36,7 +36,7 @@ class CommandFactory {
       case CreateCanvasCommand:
         return new CreateCanvasCommand(payload, this.canvas);
       case PaintCanvasCommand:
-        return new PaintCanvasCommand(payload, this.view, this.canvas);
+        return new PaintCanvasCommand(this.view, this.canvas);
       case BucketFillCommand:
         return new BucketFillCommand(payload, this.renderer);
       case ProcessUserInputCommand:

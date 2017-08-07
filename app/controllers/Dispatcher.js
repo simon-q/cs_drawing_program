@@ -1,6 +1,7 @@
 'use strict'
 
 let Command = require('./../commands/Command');
+let ControllerError = require('./ControllerError');
 
 /**
  * Dispatches a given command, fetches a new one and continues the loop as long as
@@ -51,7 +52,9 @@ class Dispatcher {
       })
       .finally(() => {
         console.log('finally');
-        let responseFromPrevious = this.result != null ? this.result : this.error;
+        let responseFromPrevious = this.result != null
+          ? this.result
+          : (typeof this.error === 'string' ? new ControllerError(this.error) : this.error);
         let nextCommand = this.controller.getNextCommand(command, responseFromPrevious);
         if (nextCommand) this.dispatch(nextCommand, responseFromPrevious);
       });

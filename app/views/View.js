@@ -26,7 +26,7 @@ class View {
    */
   read(callback) {
     if (typeof callback !== 'function') throw new TypeError('callback must be a function');
-    this._cli.question(' > ', callback);
+    this._cli.question('enter command: ', callback);
   }
 
   /**

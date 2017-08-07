@@ -21,6 +21,9 @@ class Renderer {
    * @param {number} y2 y coordinate of the second point
    */
   renderLine(x1, y1, x2, y2) {
+    this.validateCoordinates(x1, y1);
+    this.validateCoordinates(x2, y2);
+
     if (x1 !== x2 && y1 !== y2)
       throw new RendererError('Lines can be only horizontal or vertical now.');
 
@@ -53,9 +56,6 @@ class Renderer {
    * @param {number} y2 y coordinate of the second point
    */
   renderRectangle(x1, y1, x2, y2) {
-    if (!this.canvas)
-      throw new RendererError('A canvas has to be set first.');
-
     this.validateCoordinates(x1, y1);
     this.validateCoordinates(x2, y2);
 

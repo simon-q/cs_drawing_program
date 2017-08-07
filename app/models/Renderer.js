@@ -82,6 +82,8 @@ class Renderer {
     if (!this.canvas)
       throw new RendererError('A canvas has to be set first.');
 
+    if (newColor === '') newColor = ' ';
+
     this.validateCoordinates(x, y);
 
     if (typeof newColor !== 'string' || newColor.length !== 1)

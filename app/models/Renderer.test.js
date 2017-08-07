@@ -323,7 +323,6 @@ describe('Renderer', function() {
     });
       
     it('should throw an error if coordinates are invalid', function() {
-      expect(() => { renderer.bucketFill(1, 1, ''); }).to.throw(RendererError, 'Color must be a one letter string.');
       expect(() => { renderer.bucketFill(1, 1, 'color'); }).to.throw(RendererError, 'Color must be a one letter string.');
       expect(() => { renderer.bucketFill(1, 1, 1); }).to.throw(RendererError, 'Color must be a one letter string.');
       expect(() => { renderer.bucketFill(2, '3', 'c'); }).to.throw(RendererError, 'Coordinates must be numbers.');

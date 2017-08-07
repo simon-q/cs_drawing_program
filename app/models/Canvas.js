@@ -2,6 +2,7 @@
 
 let Point = require('./Point');
 let CanvasError = require('./CanvasError');
+let Constants = require('./../Constants');
 
 class Canvas {
   constructor() {
@@ -137,9 +138,9 @@ class Canvas {
   toString() {
     let s = '';
 
-    let horizontalBorder = (new Array(this.width+(2*this.verticalBorderWidth)+1)).join('-') + '\n';
+    let horizontalBorder = (new Array(this.width+(2*this.verticalBorderWidth)+1)).join(Constants.canvasHorizontalBorderCharacter) + '\n';
     horizontalBorder = (new Array(this.horizontalBorderWidth+1)).join(horizontalBorder);
-    let verticalBorderPart = (new Array(this.horizontalBorderWidth+1)).join('|');
+    let verticalBorderPart = (new Array(this.horizontalBorderWidth+1)).join(Constants.canvasVerticalBorderCharacter);
     
     s += horizontalBorder;
     for (let y = 1; y <= this.height; y++) {

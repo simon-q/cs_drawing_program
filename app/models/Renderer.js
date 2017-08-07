@@ -1,6 +1,7 @@
 'use strict'
 
 let RendererError = require('./RendererError');
+let Constants = require('./../Constants');
 
 class Renderer {
 
@@ -64,7 +65,7 @@ class Renderer {
     let yTo = Math.max(y1, y2);
     for (let x = xFrom; x <= xTo; x++) {
       for (let y = yFrom; y <= yTo; y++) {
-        this.canvas.getPoint(x, y).color = 'x';
+        this.canvas.getPoint(x, y).color = Constants.canvasDefaultLineCharacter;
       }  
     }
   }

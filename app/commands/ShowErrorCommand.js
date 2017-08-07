@@ -10,8 +10,8 @@ class ShowErrorCommand extends Command {
   }
   
   _execute() {
-    this.view.showError(this.error);
-    this.resolve(this.error);
+    this.view.showError(this.error instanceof Error ? this.error.message : this.error);
+    this.resolve();
   }
 
 }

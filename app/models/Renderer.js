@@ -109,9 +109,7 @@ class Renderer {
       ].forEach((coordinates) => {
         let x = coordinates[0];
         let y = coordinates[1];
-        // console.log('inspecting ' + x + ' ' + y);
         if (this.canvas.isWithinBounds(x, y)) {
-          // console.log('in');
           let point = this.canvas.getPoint(x, y);
           if (point.color === originalColor) stack.push([x, y]);
         }

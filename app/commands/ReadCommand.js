@@ -10,7 +10,6 @@ class ReadCommand extends Command {
   
   _execute() {
     this.view.read((data) => {
-      console.log('read data: ' + data);
       this.resolve(data);
     });
   }

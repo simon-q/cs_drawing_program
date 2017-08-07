@@ -28,8 +28,7 @@ class Dispatcher {
    * @return {Promise}
    */
   dispatch(commandOrClass, payload) {
-    console.log('dispatching...');
-    // console.log(commandOrClass + ' : ' + payload);
+    // console.log(commandOrClass);
     
     this.result = null;
     this.error = null;
@@ -39,24 +38,31 @@ class Dispatcher {
 
     return command.execute()
       .then((result) => { 
-        console.log('result');
-        console.log(result);
         this.result = result;
         return result;
       })
       .catch((error) => {
-        console.log('error');
-        console.log(error);
         this.error = error;
+        // if (error instanceof ControllerError) {
+        //     console.log('control error');
+        // }
         throw error;
       })
       .finally(() => {
-        console.log('finally');
         let responseFromPrevious = this.result != null
           ? this.result
           : (typeof this.error === 'string' ? new ControllerError(this.error) : this.error);
-        let nextCommand = this.controller.getNextCommand(command, responseFromPrevious);
-        if (nextCommand) this.dispatch(nextCommand, responseFromPrevious);
+        try {
+          let nextCommand = this.controller.getNextCommand(command, responseFromPrevious);
+          if (nextCommand) this.dispatch(nextCommand, responseFromPrevious);
+        } catch(e) {
+          if (e instanceof ControllerError) {
+            let nextCommand = this.controller.getNextCommand(command, e);
+            if (nextCommand) this.dispatch(nextCommand, e);
+          } else {
+            throw e;
+          }
+        }
       });
   }
 }

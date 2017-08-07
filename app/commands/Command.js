@@ -37,7 +37,6 @@ class Command {
    * @return {Promise}
    */
   resolve(data) {
-    console.log('resolving');
     this.deferred.resolve(data);
     return this.deferred.promise;
   }

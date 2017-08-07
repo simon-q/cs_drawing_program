@@ -26,10 +26,6 @@ class Controller {
    * @param {*} responseFromPrevious 
    */
   getNextCommand(previousCommand, responseFromPrevious) {
-    console.log('getting new command');
-    // console.log('previous command: ');
-    // console.log(previousCommand ? Object.getPrototypeOf(previousCommand) : '');
-    
     if (!previousCommand) return ReadCommand;
     
     if (responseFromPrevious

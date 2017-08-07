@@ -29,9 +29,6 @@ class CommandFactory {
    * @param {*} payload 
    */
   createCommand(commandClass, payload) {
-    console.log('creating a command');
-    // console.log(commandClass);
-    
     switch (commandClass) {
       case CreateCanvasCommand:
         return new CreateCanvasCommand(payload, this.canvas);
@@ -54,7 +51,6 @@ class CommandFactory {
       default:
         throw new TypeError('Unknown command.');
     }
-    
   }
 }
 

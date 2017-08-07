@@ -7,8 +7,6 @@ let Dispatcher = require('./app/controllers/Dispatcher');
 let Controller = require('./app/controllers/Controller');
 let CommandFactory = require('./app/commands/CommandFactory');
 
-console.log('start');
-
 if (!process.stdin || !process.stdout) {
     return;
 }
@@ -21,14 +19,9 @@ let commandFactory = new CommandFactory(canvas, renderer, view);
 let dispatcher = new Dispatcher(controller, commandFactory);
 
 canvas.maxWidth = ( process.stdout.columns != null ? process.stdout.columns : 80 )
-    - 2*renderer.verticalBorderWidth;
+    - 2*canvas.verticalBorderWidth;
 canvas.maxHeight = ( process.stdout.rows != null ? process.stdout.rows : 80 )
-    - 2*renderer.horizontalBorderWidth;
+    - 2*canvas.horizontalBorderWidth;
 
-function run() {
-    dispatcher.dispatch(controller.getNextCommand());
-}
-
-run();
-
-module.exports = run;
+// app entry point
+dispatcher.dispatch(controller.getNextCommand());

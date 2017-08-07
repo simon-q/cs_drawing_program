@@ -73,9 +73,6 @@ class Canvas {
    * @param {number} height of the canvas
    */
   create(width, height) {
-    this.width = width;
-    this.height = height;
-
     if (typeof width !== 'number' || typeof height !== 'number' ||
       isNaN(width) || isNaN(height) || width < 1 || height < 1)
       throw new CanvasError('Canvas dimensions must be numbers bigger than 0');
@@ -85,6 +82,9 @@ class Canvas {
 
     if (width > this.maxWidth || height > this.maxHeight)
       throw new CanvasError('Canvas dimensions must be less than: ' + 'width: ' + this.maxWidth + ', height: ' + this.maxHeight);
+
+    this.width = width;
+    this.height = height;
 
     this._canvas = new Array(width);
     for (let x = 0; x < width; x++) {

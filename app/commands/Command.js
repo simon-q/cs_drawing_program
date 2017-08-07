@@ -1,8 +1,6 @@
 'use strict'
 
 var deferred = require('deferred');
-var Promise = require("bluebird");
-var promiseResolver = require('promise-resolver');
 
 /**
  * Asynchronous wrapper encapsulating a command that carries out actions and then

@@ -1,5 +1,26 @@
-# cs_drawing_program
+## cs_drawing_program
 credit suisse coding test
 
-Node.js > 6.5.0 (http://node.green/)
-npm > 3.10.10
+requires
+* Node.js > 6.5.0
+* npm > 3.10.10
+
+# install
+```sh
+$ npm install
+```
+
+# run
+```sh
+$ node main
+```
+
+# run tests
+```sh
+$ npm test
+```
+
+# test coverage
+```sh
+$ npm run coverage
+```
